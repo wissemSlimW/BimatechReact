@@ -21,7 +21,7 @@ export const SkillsCRU = () => {
         navigate(`/${routes.skills}`)
     }
     const { id } = useParams()
-    const { data: skill, ready } = useFindOneApi<Skill>({ endpoint: 'skills', id })
+    const { data: skill } = useFindOneApi<Skill>({ endpoint: 'skills', id })
     const initialValues = useMemo((): Skill => ({
         _id: skill?._id || null! as string,
         name: skill?.name || null! as string,

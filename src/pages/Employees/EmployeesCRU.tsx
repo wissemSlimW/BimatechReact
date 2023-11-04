@@ -20,7 +20,7 @@ export const EmployeesCRU = () => {
     const { pathname } = useLocation()
     const mode = getMode({ pathname })
     const { id } = useParams()
-    const { data: employee, ready } = useFindOneApi<Employee>({ endpoint: 'employees', id })
+    const { data: employee } = useFindOneApi<Employee>({ endpoint: 'employees', id })
     const { data: skills } = useGetAllApi<Skill>({ endpoint: 'skills' })
 
     const handleClose = () => {
@@ -220,7 +220,7 @@ export const EmployeesCRU = () => {
                                             options={skills}
                                             value={skills.filter((s) => formik.values.skillIds?.some(id => id === s._id))}
                                             getOptionLabel={(option) => `${option?.name}`}
-                                            onChange={(event, value) => formik.setFieldValue("skillIds", value.map((skill) => skill?._id))}
+                                            onChange={(_, value) => formik.setFieldValue("skillIds", value.map((skill) => skill?._id))}
                                             renderInput={(params) => (
                                                 <TextField
                                                     {...params}
