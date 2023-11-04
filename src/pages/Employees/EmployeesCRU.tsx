@@ -72,7 +72,7 @@ export const EmployeesCRU = () => {
                     handleError: (err) => {
                         if(err?.data?.error==="Email already in use."){formik.setErrors({ ...formik.errors, email: err?.data?.error })
                     }},
-                    handleResponse: (res) => {
+                    handleResponse: () => {
                         handleClose()
                     },
 

@@ -47,9 +47,9 @@ export const SkillsCRU = () => {
                     body: data,
                     ...data._id ? { id: data._id } : {},
                     setReady: setSendRequest,
-                    handleError(err) {
-                    },
-                    handleResponse(res) {
+
+                    handleResponse() {
+                        
                         handleClose()
                     },
                 }
